@@ -1,4 +1,7 @@
 package com.project.clinic.model.user;
 
-public class UserType {
+public enum UserType {
+    ADMIN,
+    FRONTDESK,
+    SPECIALIST
 }
