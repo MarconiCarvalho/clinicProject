@@ -50,8 +50,8 @@ public class UserService {
     }
 
     public UserModel updateUser(UUID id, UserRequestDTO userRequestDTO){
-        UserModel newUser = new UserModel(userRequestDTO);
-
+        UserModel newUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User With ID: "+id+" Not found."));
         newUser.setUserName(userRequestDTO.userName());
         newUser.setPassword(userRequestDTO.password());
         newUser.setUpdateBy(userRequestDTO.updateBy());
