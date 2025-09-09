@@ -6,6 +6,7 @@ import com.project.clinic.repositories.ConsultationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,15 +22,21 @@ public class ConsultationService {
 
     private ConsultationModel createConsultation(ConsultationRequestDTO consultation){
         ConsultationModel newConsultation = new ConsultationModel(consultation);
-
-        newConsultation.setDate(consultation.date());
-        newConsultation.setTimer(consultation.timer());
-        newConsultation.setStatus(consultation.status());
-        newConsultation.setCreateBy(consultation.createBy());
-        newConsultation.setCreateAt(consultation.createAt());
-        newConsultation.setUpdateBy(consultation.updateBy());
-        newConsultation.setUpdateAt(consultation.updateAt());
+        this.saveConsultation(newConsultation);
         return newConsultation;
+    }
+
+    private ConsultationModel updateConsultation(UUID id,ConsultationRequestDTO consultationRequestDTO){
+        ConsultationModel updateConsultation = consultationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Consultation with " + id + " not found"));
+
+        updateConsultation.setDate(consultationRequestDTO.date());
+        updateConsultation.setTimer(consultationRequestDTO.timer());
+        updateConsultation.setStatus(consultationRequestDTO.status());
+        updateConsultation.setUpdateBy(consultationRequestDTO.updateBy());
+        updateConsultation.setUpdateAt(LocalDateTime.now());
+
+        return updateConsultation;
     }
 
     private List<ConsultationModel> findAllConsultation(){
@@ -38,5 +45,14 @@ public class ConsultationService {
 
     private ConsultationModel findConsultationById(UUID id){
         return consultationRepository.findById(id).orElseThrow(() -> new RuntimeException("User with ID: " +id+ " not found"));
+    }
+
+    private Boolean deleteConsultationById(UUID id){
+        if (consultationRepository.existsById(id)){
+            consultationRepository.deleteById(id);
+            return true;
+        }
+
+        return false;
     }
 }

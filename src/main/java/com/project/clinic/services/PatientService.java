@@ -19,14 +19,7 @@ public class PatientService {
 
     private PatientModel createPatient(PatientRequestDTO patientRequestDTO){
         PatientModel newPatient = new PatientModel(patientRequestDTO);
-        newPatient.setName(patientRequestDTO.name()) ;
-        newPatient.setDocumentation(patientRequestDTO.documentation());
-        newPatient.setContact(patientRequestDTO.contact());
-        newPatient.setDateBirth(patientRequestDTO.dateBirth());
-        newPatient.setEmail(patientRequestDTO.email());
-        newPatient.setAndressPatient(patientRequestDTO.andressPatient());
-        newPatient.setUpdateBy(patientRequestDTO.updateBy());
-        newPatient.setUpdateAt(LocalDateTime.now());
+        this.savePatient(newPatient);
 
         return newPatient;
     }
@@ -39,17 +32,17 @@ public class PatientService {
     }
 
     private PatientModel updatePatient(UUID id, PatientRequestDTO patientRequestDTO){
-        PatientModel newPatient = patientRepository.findById(id)
+        PatientModel updatePatient = patientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User with ID: "+ id + " not found"));
-        newPatient.setName(patientRequestDTO.name()) ;
-        newPatient.setDocumentation(patientRequestDTO.documentation());
-        newPatient.setContact(patientRequestDTO.contact());
-        newPatient.setDateBirth(patientRequestDTO.dateBirth());
-        newPatient.setEmail(patientRequestDTO.email());
-        newPatient.setAndressPatient(patientRequestDTO.andressPatient());
-        newPatient.setUpdateBy(patientRequestDTO.updateBy());
-        newPatient.setUpdateAt(LocalDateTime.now());
-        return newPatient;
+        updatePatient.setName(patientRequestDTO.name()) ;
+        updatePatient.setDocumentation(patientRequestDTO.documentation());
+        updatePatient.setContact(patientRequestDTO.contact());
+        updatePatient.setDateBirth(patientRequestDTO.dateBirth());
+        updatePatient.setEmail(patientRequestDTO.email());
+        updatePatient.setAndressPatient(patientRequestDTO.andressPatient());
+        updatePatient.setUpdateBy(patientRequestDTO.updateBy());
+        updatePatient.setUpdateAt(LocalDateTime.now());
+        return updatePatient;
     }
 
     private boolean deleteUserById(UUID id){

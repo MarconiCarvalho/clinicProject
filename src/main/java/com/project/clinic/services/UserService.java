@@ -22,13 +22,21 @@ public class UserService {
     }
     public UserModel createUser(UserRequestDTO userRequestDTO){
         UserModel newUser = new UserModel(userRequestDTO);
-
-        newUser.setUserName(userRequestDTO.userName());
-        newUser.setPassword(userRequestDTO.password());
-        newUser.setCreateBy(userRequestDTO.CreateBy());
-        newUser.setCreateAt(LocalDateTime.now());
-        newUser.setRole(userRequestDTO.role());
+        this.saveUser(newUser);
         return userRepository.save(newUser);
+
+    }
+
+    public UserModel updateUser(UUID id, UserRequestDTO userRequestDTO){
+        UserModel updateUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User With ID: "+id+" Not found."));
+        updateUser.setUserName(userRequestDTO.userName());
+        updateUser.setPassword(userRequestDTO.password());
+        updateUser.setUpdateBy(userRequestDTO.updateBy());
+        updateUser.setUpdateAt(LocalDateTime.now());
+        updateUser.setRole(userRequestDTO.role());
+
+        return userRepository.save(updateUser);
 
     }
 
@@ -49,17 +57,6 @@ public class UserService {
         return false;
     }
 
-    public UserModel updateUser(UUID id, UserRequestDTO userRequestDTO){
-        UserModel newUser = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User With ID: "+id+" Not found."));
-        newUser.setUserName(userRequestDTO.userName());
-        newUser.setPassword(userRequestDTO.password());
-        newUser.setUpdateBy(userRequestDTO.updateBy());
-        newUser.setUpdateAt(LocalDateTime.now());
-        newUser.setRole(userRequestDTO.role());
 
-        return userRepository.save(newUser);
-
-    }
 
 }
