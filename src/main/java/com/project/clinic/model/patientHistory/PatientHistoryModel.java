@@ -1,5 +1,6 @@
 package com.project.clinic.model.patientHistory;
 
+import com.project.clinic.model.dtos.HistoryRequestDTO;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -22,7 +23,7 @@ public class PatientHistoryModel {
     private String observation;
     private LocalDateTime dateRegistration;
 
-    public PatientHistoryModel(PatientHistoryModel data){
+    public PatientHistoryModel(HistoryRequestDTO data){
         this.doctorId = data.doctorId();
         this.diagnostic = data.diagnostic();
         this.treatment = data.treatment();

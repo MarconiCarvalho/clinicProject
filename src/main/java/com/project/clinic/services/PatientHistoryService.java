@@ -19,8 +19,8 @@ public class PatientHistoryService {
         this.historyRepository.save(historyModel);
     }
 
-    private PatientHistoryModel createPatient(PatientHistoryModel historyModel){
-        PatientHistoryModel newHistory = new PatientHistoryModel(historyModel);
+    private PatientHistoryModel createPatient(HistoryRequestDTO historyRequestDTO){
+        PatientHistoryModel newHistory = new PatientHistoryModel(historyRequestDTO);
         this.saveHistory(newHistory);
         return newHistory;
     }
