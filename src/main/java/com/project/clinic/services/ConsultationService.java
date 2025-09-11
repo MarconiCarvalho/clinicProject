@@ -1,7 +1,7 @@
 package com.project.clinic.services;
 
-import com.project.clinic.model.consultation.ConsultationModel;
-import com.project.clinic.model.dtos.ConsultationRequestDTO;
+import com.project.clinic.models.consultation.ConsultationModel;
+import com.project.clinic.models.dtos.ConsultationRequestDTO;
 import com.project.clinic.repositories.ConsultationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

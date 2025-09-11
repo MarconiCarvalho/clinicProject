@@ -1,4 +1,4 @@
-package com.project.clinic.model.patient;
+package com.project.clinic.models.patient;
 
 import jakarta.persistence.Embeddable;
 

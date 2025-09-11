@@ -1,7 +1,7 @@
 package com.project.clinic.services;
 
-import com.project.clinic.model.dtos.UserRequestDTO;
-import com.project.clinic.model.user.UserModel;
+import com.project.clinic.models.dtos.UserRequestDTO;
+import com.project.clinic.models.user.UserModel;
 import com.project.clinic.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

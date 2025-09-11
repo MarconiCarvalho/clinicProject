@@ -1,7 +1,7 @@
 package com.project.clinic.services;
 
-import com.project.clinic.model.doctor.DoctorModel;
-import com.project.clinic.model.dtos.DoctorRequestDTO;
+import com.project.clinic.models.doctor.DoctorModel;
+import com.project.clinic.models.dtos.DoctorRequestDTO;
 import com.project.clinic.repositories.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

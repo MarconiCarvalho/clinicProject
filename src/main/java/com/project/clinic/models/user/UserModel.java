@@ -1,6 +1,6 @@
-package com.project.clinic.model.user;
+package com.project.clinic.models.user;
 
-import com.project.clinic.model.dtos.UserRequestDTO;
+import com.project.clinic.models.dtos.UserRequestDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

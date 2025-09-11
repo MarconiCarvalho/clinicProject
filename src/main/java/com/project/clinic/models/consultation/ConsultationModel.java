@@ -1,6 +1,6 @@
-package com.project.clinic.model.consultation;
+package com.project.clinic.models.consultation;
 
-import com.project.clinic.model.dtos.ConsultationRequestDTO;
+import com.project.clinic.models.dtos.ConsultationRequestDTO;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.project.clinic.model.user;
+package com.project.clinic.models.user;
 
 public enum UserType {
     ADMIN,

@@ -1,6 +1,6 @@
-package com.project.clinic.model.patient;
+package com.project.clinic.models.patient;
 
-import com.project.clinic.model.dtos.PatientRequestDTO;
+import com.project.clinic.models.dtos.PatientRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

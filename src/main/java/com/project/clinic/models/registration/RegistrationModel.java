@@ -1,8 +1,7 @@
-package com.project.clinic.model.registration;
+package com.project.clinic.models.registration;
 
-import com.project.clinic.model.dtos.RegistrationRequestDTO;
+import com.project.clinic.models.dtos.RegistrationRequestDTO;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 

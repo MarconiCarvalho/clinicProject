@@ -1,7 +1,7 @@
 package com.project.clinic.services;
 
-import com.project.clinic.model.dtos.PatientRequestDTO;
-import com.project.clinic.model.patient.PatientModel;
+import com.project.clinic.models.dtos.PatientRequestDTO;
+import com.project.clinic.models.patient.PatientModel;
 import com.project.clinic.repositories.PatientRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -13,25 +13,25 @@ public class PatientService {
 
     private PatientRepository patientRepository;
 
-    private void savePatient(PatientModel patientModel){
+    public void savePatient(PatientModel patientModel){
         this.patientRepository.save(patientModel);
     }
 
-    private PatientModel createPatient(PatientRequestDTO patientRequestDTO){
+    public PatientModel createPatient(PatientRequestDTO patientRequestDTO){
         PatientModel newPatient = new PatientModel(patientRequestDTO);
         this.savePatient(newPatient);
 
         return newPatient;
     }
-    private List<PatientModel> findAllPatient(UUID id){
+    public List<PatientModel> findAllPatient(UUID id){
         return patientRepository.findAll();
     }
 
-    private PatientModel findPatientById(UUID id){
+    public PatientModel findPatientById(UUID id){
         return patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
     }
 
-    private PatientModel updatePatient(UUID id, PatientRequestDTO patientRequestDTO){
+    public PatientModel updatePatient(UUID id, PatientRequestDTO patientRequestDTO){
         PatientModel updatePatient = patientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User with ID: "+ id + " not found"));
         updatePatient.setName(patientRequestDTO.name()) ;
@@ -45,7 +45,7 @@ public class PatientService {
         return updatePatient;
     }
 
-    private boolean deleteUserById(UUID id){
+    public boolean deletePatientById(UUID id){
         if(patientRepository.existsById(id)){
             patientRepository.deleteById(id);
             return true;

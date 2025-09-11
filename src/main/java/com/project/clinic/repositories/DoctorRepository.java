@@ -1,6 +1,6 @@
 package com.project.clinic.repositories;
 
-import com.project.clinic.model.doctor.DoctorModel;
+import com.project.clinic.models.doctor.DoctorModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

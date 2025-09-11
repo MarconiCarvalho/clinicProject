@@ -1,7 +1,7 @@
 package com.project.clinic.services;
 
-import com.project.clinic.model.dtos.HistoryRequestDTO;
-import com.project.clinic.model.patientHistory.PatientHistoryModel;
+import com.project.clinic.models.dtos.HistoryRequestDTO;
+import com.project.clinic.models.patientHistory.PatientHistoryModel;
 import com.project.clinic.repositories.PatientHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

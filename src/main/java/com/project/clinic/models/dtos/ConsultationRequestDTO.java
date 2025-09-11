@@ -1,4 +1,4 @@
-package com.project.clinic.model.dtos;
+package com.project.clinic.models.dtos;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

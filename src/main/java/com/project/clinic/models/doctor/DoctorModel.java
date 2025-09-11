@@ -1,12 +1,10 @@
-package com.project.clinic.model.doctor;
+package com.project.clinic.models.doctor;
 
-import com.project.clinic.model.dtos.DoctorRequestDTO;
+import com.project.clinic.models.dtos.DoctorRequestDTO;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity(name = "DOCTOR_TABLE")
