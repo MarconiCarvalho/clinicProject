@@ -17,8 +17,7 @@ public class DoctorController{
     @Autowired
     private DoctorService doctorService;
 
-    @PostMapping
-    @RequestMapping("/create")
+    @PostMapping(("/create"))
     public ResponseEntity<DoctorModel> createDoctor(@RequestBody DoctorRequestDTO doctorRequestDTO){
         DoctorModel newDoctor = doctorService.createDoctor(doctorRequestDTO);
         return ResponseEntity.ok(newDoctor);
@@ -31,14 +30,12 @@ public class DoctorController{
     }
 
 
-    @GetMapping
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public ResponseEntity<List<DoctorModel>> getAllDoctor(){
         return ResponseEntity.ok(doctorService.findAllDoctor());
     }
 
-    @GetMapping("/{id}")
-    @RequestMapping("/findDoctor")
+    @GetMapping("/findDoctor/{id}")
     public ResponseEntity<DoctorModel> getDoctorById(@PathVariable UUID id){
         return ResponseEntity.ok(doctorService.findDoctorById(id));
     }

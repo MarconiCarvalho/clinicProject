@@ -16,17 +16,17 @@ public class ConsultationService {
     @Autowired
     private ConsultationRepository consultationRepository;
 
-    private void saveConsultation(ConsultationModel consultationModel){
+    public void saveConsultation(ConsultationModel consultationModel){
         this.consultationRepository.save(consultationModel);
     }
 
-    private ConsultationModel createConsultation(ConsultationRequestDTO consultation){
+    public ConsultationModel createConsultation(ConsultationRequestDTO consultation){
         ConsultationModel newConsultation = new ConsultationModel(consultation);
         this.saveConsultation(newConsultation);
         return newConsultation;
     }
 
-    private ConsultationModel updateConsultation(UUID id,ConsultationRequestDTO consultationRequestDTO){
+    public ConsultationModel updateConsultation(UUID id,ConsultationRequestDTO consultationRequestDTO){
         ConsultationModel updateConsultation = consultationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Consultation with " + id + " not found"));
 
@@ -39,15 +39,15 @@ public class ConsultationService {
         return updateConsultation;
     }
 
-    private List<ConsultationModel> findAllConsultation(){
+    public List<ConsultationModel> findAllConsultation(){
         return consultationRepository.findAll();
     }
 
-    private ConsultationModel findConsultationById(UUID id){
+    public ConsultationModel findConsultationById(UUID id){
         return consultationRepository.findById(id).orElseThrow(() -> new RuntimeException("User with ID: " +id+ " not found"));
     }
 
-    private Boolean deleteConsultationById(UUID id){
+    public Boolean deleteConsultationById(UUID id){
         if (consultationRepository.existsById(id)){
             consultationRepository.deleteById(id);
             return true;

@@ -23,7 +23,8 @@ public class PatientService {
 
         return newPatient;
     }
-    public List<PatientModel> findAllPatient(UUID id){
+
+    public List<PatientModel> findAllPatient(){
         return patientRepository.findAll();
     }
 
