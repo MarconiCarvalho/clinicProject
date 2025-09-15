@@ -15,17 +15,17 @@ public class PatientHistoryService {
     @Autowired
     private PatientHistoryRepository historyRepository;
 
-    private void saveHistory(PatientHistoryModel historyModel){
+    public void saveHistory(PatientHistoryModel historyModel){
         this.historyRepository.save(historyModel);
     }
 
-    private PatientHistoryModel createPatient(HistoryRequestDTO historyRequestDTO){
+    public PatientHistoryModel createPatient(HistoryRequestDTO historyRequestDTO){
         PatientHistoryModel newHistory = new PatientHistoryModel(historyRequestDTO);
         this.saveHistory(newHistory);
         return newHistory;
     }
 
-    private PatientHistoryModel updatePatient(UUID id, HistoryRequestDTO historyRequestDTO){
+    public PatientHistoryModel updatePatient(UUID id, HistoryRequestDTO historyRequestDTO){
         PatientHistoryModel updateHistory = historyRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("History with id: " + id + ""));
 
@@ -39,17 +39,17 @@ public class PatientHistoryService {
 
     }
 
-    private List<PatientHistoryModel> findAllHistory(){
+    public List<PatientHistoryModel> findAllHistory(){
         return historyRepository.findAll();
     }
 
-    private PatientHistoryModel findHistoryById(UUID id){
+    public PatientHistoryModel findHistoryById(UUID id){
         return historyRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("History with id: " + id + " not found."));
 
     }
 
-    private boolean deleteHistory(UUID id){
+    public boolean deleteHistory(UUID id){
         if(historyRepository.existsById(id)){
             historyRepository.deleteById(id);
             return true;
